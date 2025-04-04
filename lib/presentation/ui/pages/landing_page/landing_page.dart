@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pregnancy_tracker_mobile_app_clone/domain/exercise_entity.dart';
+import 'package:pregnancy_tracker_mobile_app_clone/presentation/ui/pages/landing_page/widgets/content_header.dart';
+import 'package:pregnancy_tracker_mobile_app_clone/presentation/ui/pages/landing_page/widgets/exercise_card_view_item.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -10,6 +12,13 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
+
+  List<ExerciseEntity> exerciseList = [
+    ExerciseEntity(exerciseTitle: "Vatra Asana", difficultyLevel: "Beginner", exerciseDuration: 7),
+    ExerciseEntity(exerciseTitle: "Hala Asana", difficultyLevel: "Advance", exerciseDuration: 10),
+    ExerciseEntity(exerciseTitle: "Bazra Asana", difficultyLevel: "Intermediate", exerciseDuration: 300),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,8 +40,8 @@ class _LandingPageState extends State<LandingPage> {
               ),
             ),
           ),
-          _buildContentHeaderSection(contentHeaderTitle: "Daily Exercise"),
-          _buildExerciseCardView(),
+          ContentHeader(contentHeaderTitle: "Daily Exercise"),
+          Expanded(child: _buildExerciseList()),
         ],
       ),
     );
@@ -245,171 +254,21 @@ class _LandingPageState extends State<LandingPage> {
     );
   }
 
-  Widget _buildContentHeaderSection({required String contentHeaderTitle}) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 20.0),
-          child: Text(
-            contentHeaderTitle,
-            style: GoogleFonts.poppins(
-              fontSize: 18.0,
-              color: Colors.black87,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(right: 20.0),
-          child: Icon(
-            Icons.more_horiz_rounded,
-            color: Colors.black87,
-            size: 25.0,
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildExerciseCardView() {
+  Widget _buildExerciseList() {
     return Padding(
-      padding: EdgeInsets.all(25.0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(15.0),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black12,
-              spreadRadius: 2.0,
-              blurRadius: 4.0,
-              offset: Offset(-0.5, 0.5),
+      padding: const EdgeInsets.all(0),
+      child: ListView.builder(
+        itemCount: exerciseList.length,
+        itemBuilder: (context, index) {
+          var exercise = exerciseList[index];
+          return Container(
+            margin: EdgeInsets.only(top: index == 0 ? 8 : 0),
+            padding: const EdgeInsets.only(bottom: 16.0, left: 16, right: 16, top: 16),
+            child: ExerciseCardViewItem(
+              exerciseEntity: exercise,
             ),
-          ],
-        ),
-        child: Row(
-          children: [
-            //  Difficulty level, Exercise Name, Type and Duration
-            Expanded(
-              flex: 5,
-              child: Row(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 20.0,
-                          top: 30.0,
-                          bottom: 20.0,
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(
-                              FontAwesomeIcons.fire,
-                              size: 25.0,
-                              color: Color(0xFF917af1),
-                            ),
-                            SizedBox(width: 3.0),
-                            Icon(
-                              FontAwesomeIcons.fire,
-                              size: 25.0,
-                              color: Color(0xFF917af1),
-                            ),
-                            SizedBox(width: 3.0),
-                            Icon(
-                              FontAwesomeIcons.fire,
-                              size: 25.0,
-                              color: Color(0xFFd6d8e1),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
-                        child: Text(
-                          "Varta Asana",
-                          style: GoogleFonts.poppins(
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.black87,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 20.0,
-                          top: 15.0,
-                          bottom: 10.0,
-                        ),
-                        child: Row(
-                          children: [
-                            Text(
-                              "Beginner",
-                              style: GoogleFonts.poppins(
-                                color: Color(0xFF818187),
-                                fontSize: 16.0,
-                              ),
-                            ),
-                            SizedBox(width: 7.0),
-                            Container(
-                              width: 4.0,
-                              height: 4.0,
-                              decoration: BoxDecoration(
-                                color: Color(0xFF818187),
-                                borderRadius: BorderRadius.circular(20.0),
-                              ),
-                            ),
-                            SizedBox(width: 7.0),
-                            Text(
-                              "7 mins",
-                              style: GoogleFonts.poppins(
-                                fontSize: 16,
-                                color: Color(0xFF818187),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(width: 10.0),
-
-            //  Image Section
-            Expanded(
-              flex: 4,
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(40.0),
-                    topLeft: Radius.circular(40.0),
-                    topRight: Radius.circular(15.0),
-                    bottomRight: Radius.circular(15.0),
-                  ),
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(40.0),
-                    topLeft: Radius.circular(40.0),
-                    topRight: Radius.circular(15.0),
-                    bottomRight: Radius.circular(15.0),
-                  ),
-                  child: Image(
-                    image: AssetImage(
-                      "assets/images/pregnant_exercise_card_varta_asana.jpg",
-                    ),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }
