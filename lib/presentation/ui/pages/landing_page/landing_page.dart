@@ -32,36 +32,59 @@ class _LandingPageState extends State<LandingPage> {
             ),
           ),
           _buildContentHeaderSection(contentHeaderTitle: "Daily Exercise"),
-          // _buildExerciseCardView(),
+          _buildExerciseCardView(),
         ],
       ),
     );
   }
 
-  Widget _buildContentHeaderSection({required String contentHeaderTitle}) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 20.0),
-          child: Text(
-            contentHeaderTitle,
-            style: GoogleFonts.poppins(
-              fontSize: 18.0,
-              color: Colors.black87,
-              fontWeight: FontWeight.bold,
+  _buildAppBar() {
+    return PreferredSize(
+      preferredSize: Size.fromHeight(60.0),
+      child: SafeArea(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 35.0,
+              height: 35.0,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(50.0),
+              ),
+              child: Icon(
+                Icons.arrow_back_rounded,
+                size: 24.0,
+                color: Colors.black87,
+              ),
             ),
-          ),
+            Center(
+              child: Text(
+                "Maternal Exercice",
+                style: GoogleFonts.poppins(
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black87,
+                ),
+              ),
+            ),
+            Container(
+              width: 35.0,
+              height: 35.0,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(50.0),
+              ),
+              child: Icon(
+                Icons.notifications_outlined,
+                size: 24.0,
+                color: Colors.black87,
+              ),
+            ),
+          ],
         ),
-        Padding(
-          padding: const EdgeInsets.only(right: 20.0),
-          child: Icon(
-            Icons.more_horiz_rounded,
-            color: Colors.black87,
-            size: 25.0,
-          ),
-        ),
-      ],
+      ),
     );
   }
 
@@ -222,48 +245,167 @@ class _LandingPageState extends State<LandingPage> {
     );
   }
 
-  _buildAppBar() {
-    return PreferredSize(
-      preferredSize: Size.fromHeight(60.0),
-      child: SafeArea(
+  Widget _buildContentHeaderSection({required String contentHeaderTitle}) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 20.0),
+          child: Text(
+            contentHeaderTitle,
+            style: GoogleFonts.poppins(
+              fontSize: 18.0,
+              color: Colors.black87,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(right: 20.0),
+          child: Icon(
+            Icons.more_horiz_rounded,
+            color: Colors.black87,
+            size: 25.0,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildExerciseCardView() {
+    return Padding(
+      padding: EdgeInsets.all(25.0),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15.0),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              spreadRadius: 2.0,
+              blurRadius: 4.0,
+              offset: Offset(-0.5, 0.5),
+            ),
+          ],
+        ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              width: 35.0,
-              height: 35.0,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(50.0),
-              ),
-              child: Icon(
-                Icons.arrow_back_rounded,
-                size: 24.0,
-                color: Colors.black87,
+            //  Difficulty level, Exercise Name, Type and Duration
+            Expanded(
+              flex: 5,
+              child: Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 20.0,
+                          top: 30.0,
+                          bottom: 20.0,
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(
+                              FontAwesomeIcons.fire,
+                              size: 25.0,
+                              color: Color(0xFF917af1),
+                            ),
+                            SizedBox(width: 3.0),
+                            Icon(
+                              FontAwesomeIcons.fire,
+                              size: 25.0,
+                              color: Color(0xFF917af1),
+                            ),
+                            SizedBox(width: 3.0),
+                            Icon(
+                              FontAwesomeIcons.fire,
+                              size: 25.0,
+                              color: Color(0xFFd6d8e1),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: Text(
+                          "Varta Asana",
+                          style: GoogleFonts.poppins(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black87,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 20.0,
+                          top: 15.0,
+                          bottom: 10.0,
+                        ),
+                        child: Row(
+                          children: [
+                            Text(
+                              "Beginner",
+                              style: GoogleFonts.poppins(
+                                color: Color(0xFF818187),
+                                fontSize: 16.0,
+                              ),
+                            ),
+                            SizedBox(width: 7.0),
+                            Container(
+                              width: 4.0,
+                              height: 4.0,
+                              decoration: BoxDecoration(
+                                color: Color(0xFF818187),
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                            ),
+                            SizedBox(width: 7.0),
+                            Text(
+                              "7 mins",
+                              style: GoogleFonts.poppins(
+                                fontSize: 16,
+                                color: Color(0xFF818187),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-            Center(
-              child: Text(
-                "Maternal Exercice",
-                style: GoogleFonts.poppins(
-                  fontSize: 22.0,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black87,
+            SizedBox(width: 10.0),
+
+            //  Image Section
+            Expanded(
+              flex: 4,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.red,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(40.0),
+                    topLeft: Radius.circular(40.0),
+                    topRight: Radius.circular(15.0),
+                    bottomRight: Radius.circular(15.0),
+                  ),
                 ),
-              ),
-            ),
-            Container(
-              width: 35.0,
-              height: 35.0,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(50.0),
-              ),
-              child: Icon(
-                Icons.notifications_outlined,
-                size: 24.0,
-                color: Colors.black87,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(40.0),
+                    topLeft: Radius.circular(40.0),
+                    topRight: Radius.circular(15.0),
+                    bottomRight: Radius.circular(15.0),
+                  ),
+                  child: Image(
+                    image: AssetImage(
+                      "assets/images/pregnant_exercise_card_varta_asana.jpg",
+                    ),
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
           ],
