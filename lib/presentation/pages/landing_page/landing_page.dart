@@ -4,10 +4,10 @@ import 'package:pregnancy_tracker_mobile_app_clone/presentation/pages/landing_pa
 import 'package:pregnancy_tracker_mobile_app_clone/presentation/pages/landing_page/content/home_content.dart';
 import 'package:pregnancy_tracker_mobile_app_clone/presentation/pages/landing_page/content/medical_content.dart';
 import 'package:pregnancy_tracker_mobile_app_clone/presentation/pages/landing_page/content/profile_content.dart';
-import 'package:pregnancy_tracker_mobile_app_clone/presentation/widgets/landing_page_widgets/app_bar/custom_app_bar.dart';
-import 'package:pregnancy_tracker_mobile_app_clone/presentation/widgets/landing_page_widgets/notched_bottom_appbar/notched_bottom_appbar.dart';
+import 'package:pregnancy_tracker_mobile_app_clone/presentation/pages/landing_page/widgets/custom_app_bar.dart';
+import 'package:pregnancy_tracker_mobile_app_clone/presentation/pages/landing_page/widgets/custom_fab.dart';
+import 'package:pregnancy_tracker_mobile_app_clone/presentation/pages/landing_page/widgets/notched_bottom_appbar.dart';
 
-import '../../widgets/landing_page_widgets/fab/custom_fab.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});

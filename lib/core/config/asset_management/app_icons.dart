@@ -17,6 +17,7 @@ class AppIcons {
 
 
 class AppIconSizes{
+  static const double appbarIconSize = 27.0;
   static const double bottomBarIconSize = 30.0;
   static const double headerSectionIconSize = 25.0;
 }

@@ -19,59 +19,71 @@ class BodyBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 30.0, horizontal: 20.0),
+      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
       child: Stack(
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(25.0),
             child: Image(
               image: AssetImage(AppImages.bannerBgImage),
-              fit: BoxFit.cover,
               width: 380.0,
               height: 380.0,
+              fit: BoxFit.cover,
             ),
           ),
           Container(
             width: 380.0,
             height: 380.0,
             decoration: BoxDecoration(
-              color: Colors.black.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(25.0),
+              color: Colors.black87.withValues(alpha: 0.1),
             ),
           ),
           Positioned(
-            top: 90.0,
             left: 20.0,
+            top: 90.0,
+            right: 20.0,
+            bottom: 10.0,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(bannerTitle, style: AppTextStyle.bannerTitleTextStyle),
-                SizedBox(height: 10),
                 SizedBox(
-                  width: 240,
-                  height: 130,
+                  width: 240.0,
+                  height: 130.0,
                   child: Text(
                     bannerDescription,
                     style: AppTextStyle.bannerDescriptionTextStyle,
                   ),
                 ),
-                SizedBox(height: 30.0),
+              ],
+            ),
+          ),
+          Positioned(
+            left: 20.0,
+            top: 300.0,
+            right: 20.0,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
                       children: [
                         _buildBannerFooterImage(
-                          imagePath: AppImages.bannerFooterImage01,
+                          imagePath: AppImages.bannerFooterImage02,
                         ),
                         SizedBox(width: 10.0),
                         _buildBannerFooterImage(
-                          imagePath: AppImages.bannerFooterImage02,
+                          imagePath: AppImages.bannerFooterImage01,
                         ),
                         SizedBox(width: 10.0),
                         Container(
                           width: 30.0,
                           height: 30.0,
                           decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
                             gradient: LinearGradient(
                               begin: Alignment.bottomCenter,
                               end: Alignment.topCenter,
@@ -80,7 +92,6 @@ class BodyBanner extends StatelessWidget {
                                 AppColors.bannerFooterButtonGradientEnd,
                               ],
                             ),
-                            borderRadius: BorderRadius.circular(10.0),
                           ),
                           child: Center(
                             child: Text(
@@ -91,12 +102,11 @@ class BodyBanner extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(width: 120.0),
                     BasicButton(
                       buttonWidth: 100.0,
                       buttonHeight: 55.0,
                       onPressed: () {
-                        print("Let's start!!");
+                        print("Let's Start!!");
                       },
                       buttonText: "Start",
                     ),

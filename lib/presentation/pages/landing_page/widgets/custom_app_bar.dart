@@ -16,26 +16,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         backgroundColor: Colors.transparent,
         title: Text(appbarTitle, style: AppTextStyle.appbarTitleTextStyle),
         centerTitle: true,
-        leading: IconButton(
-          onPressed: () {},
-          icon: Container(
-            width: 50.0,
-            height: 50.0,
-            decoration: BoxDecoration(
-              color: Color(0xFFffffff),
-              shape: BoxShape.circle,
-            ),
-            child: _buildIconButton(
-              iconName: AppIcons.appbarBackArrow,
-              iconSize: AppIconSizes.bottomBarIconSize,
-              iconColor: AppColors.appbarIconColor,
-            ),
-          ),
+        leading: _buildIconButton(
+          iconName: AppIcons.appbarBackArrow,
+          iconSize: AppIconSizes.appbarIconSize,
+          iconColor: AppColors.appbarIconColor,
         ),
         actions: [
           _buildIconButton(
             iconName: AppIcons.appbarNotification,
-            iconSize: AppIconSizes.bottomBarIconSize,
+            iconSize: AppIconSizes.appbarIconSize,
             iconColor: AppColors.appbarIconColor,
           ),
         ],

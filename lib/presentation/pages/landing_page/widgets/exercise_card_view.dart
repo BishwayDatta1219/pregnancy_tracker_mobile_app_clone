@@ -26,16 +26,10 @@ class ExerciseCardView extends StatelessWidget {
         borderRadius: BorderRadius.circular(15.0),
         boxShadow: [
           BoxShadow(
-            color: Colors.black12,
-            spreadRadius: 10.0,
-            blurRadius: 10.0,
-            offset: Offset(0, 0),
-          ),
-          BoxShadow(
-            color: Colors.black12,
-            spreadRadius: 10.0,
-            blurRadius: 10.0,
-            offset: Offset(-1, 0),
+            color: Colors.deepPurpleAccent.withValues(alpha: 0.1),
+            spreadRadius: 2.0,
+            blurRadius: 5.0,
+            offset: Offset(0, -1),
           ),
         ],
       ),
@@ -112,9 +106,7 @@ class ExerciseCardView extends StatelessWidget {
               height: 160,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(
-                    "assets/images/pregnant_exercise_card_varta_asana.jpg",
-                  ),
+                  image: AssetImage(exerciseEntity.imagePath),
                   fit: BoxFit.fitHeight,
                 ),
                 borderRadius: BorderRadius.only(
