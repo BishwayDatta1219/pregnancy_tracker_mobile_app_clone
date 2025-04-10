@@ -39,4 +39,20 @@ class AppTextStyle {
     color: Colors.black87,
     fontWeight: FontWeight.bold,
   );
+
+  static final TextStyle exerciseTitleTextStyle = GoogleFonts.poppins(
+    fontSize: 20.0,
+    fontWeight: FontWeight.w600,
+    color: Colors.black87,
+  );
+
+  static final TextStyle exerciseDifficultyLevelTextStyle = GoogleFonts.poppins(
+    color: Color(0xFF818187),
+    fontSize: 12.0,
+  );
+
+  static final TextStyle exerciseDurationTextStyle = GoogleFonts.poppins(
+    fontSize: 12,
+    color: Color(0xFF818187),
+  );
 }
