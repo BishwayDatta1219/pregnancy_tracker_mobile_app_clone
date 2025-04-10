@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pregnancy_tracker_mobile_app_clone/presentation/ui/pages/home_page/home_page.dart';
-import 'package:pregnancy_tracker_mobile_app_clone/presentation/ui/pages/landing_page/landing_page.dart';
+import 'package:pregnancy_tracker_mobile_app_clone/presentation/pages/landing_page/landing_page.dart';
 import 'package:flutter/services.dart';
 
 void main() {
